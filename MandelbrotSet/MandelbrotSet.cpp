@@ -1,4 +1,4 @@
-// MandelbrotSet.cpp : ∂®“Âøÿ÷∆Ã®”¶”√≥Ã–Úµƒ»Îø⁄µ„°£
+// MandelbrotSet.cpp : ÂÆö‰πâÊéßÂà∂Âè∞Â∫îÁî®Á®ãÂ∫èÁöÑÂÖ•Âè£ÁÇπ„ÄÇ
 //
 #include "stdafx.h"
 #include <iostream>
@@ -28,7 +28,7 @@ double XStep, YStep;
 CvPoint pt1 = { -1,-1 };
 CvPoint pt2 = { -1,-1 };
 CvPoint pt3 = { -1,-1 };
-//—’…´
+//È¢úËâ≤
 CvScalar colortab[256];
 int randomColor[3] = { 0,0,0 };
 
@@ -36,7 +36,7 @@ void initColor()
 {
 	for (int i = 0;i < MAX_COLOR;i++)
 	{
-		colortab[i].val[0] = (i * 3 + randomColor[0]) % 255;        //≈‰…´∫√ø¥µƒ“™¡Ï «”√–°÷  ˝
+		colortab[i].val[0] = (i * 3 + randomColor[0]) % 255;        //ÈÖçËâ≤Â•ΩÁúãÁöÑË¶ÅÈ¢ÜÊòØÁî®Â∞èË¥®Êï∞
 		colortab[i].val[1] = (i * 5 + randomColor[1]) % 255;
 		colortab[i].val[2] = (i * 11 + randomColor[2]) % 255;
 	}
@@ -135,8 +135,8 @@ void on_mouse(int event, int x, int y, int flags, void *param = NULL)
 			XMax = Lre>Rre ? Lre : Rre;
 			YMin = Lim<Rim ? Lim : Rim;
 			YMax = Lim>Rim ? Lim : Rim;
-			cvCopy(pImg, fcopy);
-			cvRectangle(fcopy, pt1, pt2, cvScalar(255, 255, 255));
+			//cvCopy(pImg, fcopy);
+			cvRectangle(pImg, pt1, pt2, cvScalar(255, 255, 255));
 			draw_img();
 			pt1 = cvPoint(-1, -1);
 			pt2 = cvPoint(-1, -1);
@@ -173,7 +173,7 @@ int main()
 	srand(time(nullptr));
 	cvNamedWindow("mandbrot", 1);
 	pImg = cvCreateImage(cvSize(IMAGE_WIDTH, IMAGE_HEIGHT), 8, 3);
-	fcopy = cvCreateImage(cvSize(IMAGE_WIDTH, IMAGE_HEIGHT), 8, 3);
+	//fcopy = cvCreateImage(cvSize(IMAGE_WIDTH, IMAGE_HEIGHT), 8, 3);
 	cvSetMouseCallback("mandbrot", on_mouse, 0);
 	//cvShowImage ("mandbrot", pImg);
 	initColor();
